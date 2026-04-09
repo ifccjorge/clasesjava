@@ -11,7 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class Persona extends Object{
+public class Persona {
+	public static final String PAIS = "España";
 	private String nombre;
 	private String primerApellido;
 	private String segundoApellido;
