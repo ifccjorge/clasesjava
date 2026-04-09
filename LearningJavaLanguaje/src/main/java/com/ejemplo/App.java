@@ -5,5 +5,6 @@ public class App {
     	Persona persona1 = new Persona();
     	persona1.setNombre("Dani");
         System.out.println("Persona: " + persona1.getNombre());
+        System.out.println("Persona: " + persona1);
     }
 }
