@@ -1,17 +1,25 @@
 package com.ejemplo;
 
+import java.time.LocalDate;
+
 public class Persona {
 	private String nombre;
 	private String primerApellido;
 	private String segundoApellido;
+	private Genero genero;
+	private LocalDate fechaNacimiento;
 
-	public Persona(String nombre, String primerApellido, String segundoApellido) {
+	public Persona(String nombre, String primerApellido, String segundoApellido, Genero genero,
+			LocalDate fechaNacimiento) {
 		this.nombre = nombre;
 		this.primerApellido = primerApellido;
 		this.segundoApellido = segundoApellido;
+		this.genero = genero;
+		this.fechaNacimiento = fechaNacimiento;
 	}
 
 	public Persona() {
+		super();
 	}
 
 	public String getNombre() {
@@ -38,9 +46,20 @@ public class Persona {
 		this.segundoApellido = segundoApellido;
 	}
 
-	@Override
-	public String toString() {
-		return "Persona [nombre=" + nombre + ", primerApellido=" + primerApellido + ", segundoApellido="
-				+ segundoApellido + "]";
+	public Genero getGenero() {
+		return genero;
 	}
+
+	public void setGenero(Genero genero) {
+		this.genero = genero;
+	}
+
+	public LocalDate getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
 }
