@@ -4,20 +4,19 @@ import java.time.LocalDate;
 import java.time.Month;
 
 public class App {
-	public String texto = "Hola";
 	public static void main(String[] args) {
-		Persona persona1 = Persona.builder()
+		Empleado empleado1 = Empleado.builder()
 				.nombre("Juana")
-				.salario(30000)
+				.primerApellido("")
+				.segundoApellido("")
 				.genero(Genero.MUJER)
-				.build();
-		Persona persona2 = Persona.builder()
-				.nombre("Luis")
 				.fechaNacimiento(LocalDate.of(2000, Month.JANUARY, 20))
+				.salario(30000.)
+				.dpto(Dpto.CONTABILIDAD)
+				.fechaAlta(LocalDate.of(2000, Month.JANUARY, 20))
+				.ssn("A")
 				.build();
-		System.out.println(persona1);
-		System.out.println(persona2);
-		System.out.println(Persona.PAIS);
-		System.out.println(new App().texto);
+		System.out.println(empleado1);
+
 	}
 }
