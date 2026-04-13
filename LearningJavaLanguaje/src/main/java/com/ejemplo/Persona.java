@@ -2,7 +2,7 @@ package com.ejemplo;
 
 import java.time.LocalDate;
 
-public class Persona {
+public class Persona implements Tipo {
 	private String nombre;
 	private String primerApellido;
 	private String segundoApellido;
@@ -60,6 +60,18 @@ public class Persona {
 
 	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	@Override
+	public void describir() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void cursar(int horas) {
+		// TODO Auto-generated method stub
+
 	}
 
 }
