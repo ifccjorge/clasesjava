@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.Month;
 
 public class App {
-	private static final int ENTEROS = 100;
+	private static final int TOTAL_ELEMENTOS = 100;
 
 	public static void main(String[] args) {
 		Persona persona1 = Persona.builder().nombre("Jorge").primerApellido("Pascual").segundoApellido("Ramirez")
@@ -21,12 +21,18 @@ public class App {
 		Persona[] personas = { persona1, persona2, persona3, persona4, persona5 };
 		for (int i = 0; i < personas.length; i++)
 			System.out.println(personas[i]);
-		int[] numerosEnteros = new int[ENTEROS];
-		for (int i = 0; i < ENTEROS; i++)
-			numerosEnteros[i] = i % 12;
-		for (int i = 0; i < ENTEROS; i++)
-			if (numerosEnteros[i] == 11)
-				System.out.println("El índice " + i + " muestra el valor " + numerosEnteros[i]);
-
+		int[] numerosEnteros = new int[TOTAL_ELEMENTOS];
+		for (int i = 0; i < TOTAL_ELEMENTOS; i++)
+			numerosEnteros[i] = i + 1;
+		System.out.println("--- EJERCICIO 3 ---");
+		// Ejercicio 3
+		int numerosImpares = 0;
+		for (int numero : numerosEnteros) {
+			if (numero % 2 == 1) {
+				numerosImpares++;
+				System.out.println("El valor es " + numero);
+			}
+		}
+		System.out.println("Números impares encontrados: " + numerosImpares);
 	}
 }
