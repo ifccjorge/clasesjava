@@ -4,99 +4,92 @@ import java.time.LocalDate;
 import java.time.Month;
 
 public class App {
-	public static void printObject(Object object) {
-		if (object instanceof Empleado) {
-			Empleado empleado = (Empleado) object;
-			System.out.println("Salario: " + empleado.getSalario());
-		} else if (object instanceof Estudiante) {
-			Estudiante estudiante = (Estudiante) object;
-			System.out.println("Número de asignaturas: " + estudiante.getTotalAsignaturas());
-		} else if (object instanceof Persona) {
-			Persona persona = (Persona) object;
-			System.out.println("Nombre: " + persona.getNombre());
-		} else {
-			System.out.println("No se reconoce");
-		}
-	}
-
-	public static String printObjeto(Object object) {
-		if (object instanceof Empleado empleado) {
-			return "Salario: " + empleado.getSalario();
-		} else if (object instanceof Estudiante estudiante) {
-			return "Número de asignaturas: " + estudiante.getTotalAsignaturas();
-		} else if (object instanceof Persona persona) {
-			return "Nombre: " + persona.getNombre();
-		} else {
-			return "No se reconoce";
-		}
-	}
 
 	public static void main(String[] args) {
-		Persona persona1 = Persona.builder().nombre("Jorge").primerApellido("Pascual").segundoApellido("Ramirez")
-				.genero(Genero.HOMBRE).fechaNacimiento(LocalDate.of(1995, Month.JANUARY, 10)).build();
-		Persona persona2 = Persona.builder().nombre("Sebastian").primerApellido("Sanjuanelo").segundoApellido("Arrieta")
-				.genero(Genero.HOMBRE).fechaNacimiento(LocalDate.of(2000, Month.DECEMBER, 1)).build();
-		Persona persona3 = Persona.builder().nombre("Alex Eduardo").primerApellido("Pilicita")
-				.segundoApellido("Changoluisa").genero(Genero.HOMBRE)
-				.fechaNacimiento(LocalDate.of(1997, Month.SEPTEMBER, 11)).build();
-		Persona persona4 = Persona.builder().nombre("Javier").primerApellido("Jurado").segundoApellido("Moran")
-				.genero(Genero.HOMBRE).fechaNacimiento(LocalDate.of(2005, Month.OCTOBER, 25)).build();
-		Persona persona5 = Persona.builder().nombre("Rodrigo").primerApellido("Rivero").segundoApellido("Fernandez")
-				.genero(Genero.HOMBRE).fechaNacimiento(LocalDate.of(1992, Month.NOVEMBER, 4)).build();
-		Persona[] personas = { persona1, persona2, persona3, persona4, persona5 };
-		Estudiante est1 = new Estudiante();
-		Empleado emp1 = new Empleado();
-		Persona emp2 = new Empleado();
-		System.out.println(emp1 instanceof Empleado);
-		System.out.println(emp1 instanceof Persona);
-		System.out.println(emp2 instanceof Empleado);
-		System.out.println(emp2 instanceof Persona);
-		printObject(persona1);
-		printObject(est1);
-		printObject(emp2);
-		printObject(personas);
-		System.out.println(printObjeto(emp1));
-		System.out.println(printObjeto(persona2));
-		System.out.println(persona2.getClass());
-		System.out.println(emp2.getClass());
-		// Ejercicio
+		// EJERCICIO
+		// Empleados
 		Empleado empleado1 = Empleado.builder()
+				.nombre("Luis Alberto")
+				.primerApellido("Díaz")
+				.segundoApellido("Gómez")
 				.genero(Genero.HOMBRE)
+				.fechaNacimiento(LocalDate.of(1999, Month.DECEMBER, 23))
 				.salario(10500.50)
+				.dpto(Dpto.FINANAZAS)
+				.fechaAlta(LocalDate.of(2024, Month.SEPTEMBER, 3))
+				.ssn("9748964301")
 				.build();
 		Empleado empleado2 = Empleado.builder()
+				.nombre("José Luis")
+				.primerApellido("Fernández")
+				.segundoApellido("Alonso")
 				.genero(Genero.HOMBRE)
+				.fechaNacimiento(LocalDate.of(1994, Month.DECEMBER, 1))
 				.salario(11500.20)
+				.dpto(Dpto.FINANAZAS)
+				.fechaAlta(LocalDate.of(2025, Month.MAY, 30))
+				.ssn("5673340867")
 				.build();
 		Empleado empleado3 = Empleado.builder()
+				.nombre("María Luisa")
+				.primerApellido("del Pino")
+				.segundoApellido("Martínez")
 				.genero(Genero.MUJER)
+				.fechaNacimiento(LocalDate.of(1997, Month.NOVEMBER, 10))
 				.salario(13500.80)
+				.dpto(Dpto.FINANAZAS)
+				.fechaAlta(LocalDate.of(2023, Month.OCTOBER, 30))
+				.ssn("9000875439")
 				.build();
+		// Estudiantes
 		Estudiante estudiante1 = Estudiante.builder()
+				.nombre("Pedro")
+				.primerApellido("González")
+				.segundoApellido("de Miguel")
+				.genero(Genero.HOMBRE)
+				.fechaNacimiento(LocalDate.of(2007, Month.SEPTEMBER, 13))
 				.totalAsignaturas(5)
+				.facultad(Facultad.INGENIERIA)
 				.build();
 		Estudiante estudiante2 = Estudiante.builder()
-				.totalAsignaturas(7)
+				.nombre("Luisa")
+				.primerApellido("Giménez")
+				.segundoApellido("Gallardo")
+				.genero(Genero.MUJER)
+				.fechaNacimiento(LocalDate.of(2008, Month.JUNE, 1))
+				.totalAsignaturas(4)
+				.facultad(Facultad.LETRAS)
 				.build();
 		Estudiante estudiante3 = Estudiante.builder()
-				.totalAsignaturas(4)
+				.nombre("Irene")
+				.primerApellido("Rodríguez")
+				.segundoApellido("Pérez")
+				.genero(Genero.MUJER)
+				.fechaNacimiento(LocalDate.of(2008, Month.AUGUST, 15))
+				.totalAsignaturas(9)
+				.facultad(Facultad.BIOLOGIA)
 				.build();
+		// Definición del array
 		Object[] array = { empleado1, empleado2, empleado3, estudiante1, estudiante2, estudiante3 };
+		// Variable para el cálculo de medias
 		int total_empleados_hombre = 0;
-		double suma_salarios_hombre = 0.;
+		double suma_salarios_hombre = 0;
 		int total_estudiantes = 0;
-		double suma_asignaturas = 0.;
+		double suma_asignaturas = 0;
+		// For mejorado
 		for (Object objeto : array) {
-			if (objeto instanceof Empleado empleado) {
-				if (empleado.getGenero() == Genero.HOMBRE) {
-					total_empleados_hombre++;
-					suma_salarios_hombre += empleado.getSalario();
-				}
+			if (objeto instanceof Empleado empleado && empleado.getGenero().equals(Genero.HOMBRE)) {
+				// Salario medio en hombres
+				total_empleados_hombre++;
+				suma_salarios_hombre += empleado.getSalario();
 			} else if (objeto instanceof Estudiante estudiante) {
+				// Número medio asignaturas
 				total_estudiantes++;
 				suma_asignaturas += estudiante.getTotalAsignaturas();
-			} else {}
+			}
 		}
+		// Muestra de resultados
+		System.out.println("EJERCICIO");
 		System.out.println("Salario medio en hombres: " + suma_salarios_hombre / total_empleados_hombre);
 		System.out.println("Número medio asignaturas: " + suma_asignaturas / total_estudiantes);
 	}

@@ -17,5 +17,4 @@ public class Persona {
 	private String segundoApellido;
 	private Genero genero;
 	private LocalDate fechaNacimiento;
-	private double salario;
 }
